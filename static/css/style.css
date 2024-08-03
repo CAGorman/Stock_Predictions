@@ -1,0 +1,93 @@
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    background: url('../images/header.jpg.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #fff;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.controls label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.controls select, .controls button {
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.controls select:hover, .controls button:hover {
+    background-color: #f0f0f0;
+}
+
+.charts {
+    margin-bottom: 20px;
+}
+
+.predictions {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.text-box {
+    max-height: 200px;
+    overflow-y: scroll;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.text-box p {
+    margin: 0;
+}
+
+button#fetch-data {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+button#fetch-data:hover {
+    background-color: #0056b3;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Individual Stock Analysis</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Stock Analysis</h1>
+            <h2>Comprehensive Insights on Individual Stocks</h2>
+            <img src="/path/to/your/image.jpg" alt="Stock Analysis Image" style="width:100%; max-width:600px;">
+        </header>
+        <section class="controls">
+            <label for="stock-select">Choose a stock:</label>
+            <select id="stock-select">
+                <option value="SMCI">Super Micro Computer (SMCI)</option>
+                <option value="NVDA">Nvidia (NVDA)</option>
+                <option value="ANET">Arista Networks (ANET)</option>
+                <option value="NTAP">NetApp (NTAP)</option>
+                <option value="AVGO">Broadcom (AVGO)</option>
+                <option value="KLAC">KLA (KLAC)</option>
+                <option value="FICO">Fair Isaac (FICO)</option>
+                <option value="GDDY">GoDaddy (GDDY)</option>
+                <option value="MPWR">Monolithic Power Systems (MPWR)</option>
+                <option value="TYL">Tyler Technologies (TYL)</option>
+            </select>
+            <button id="fetch-data">Fetch Data</button>
+        </section>
+        <section class="charts">
+            <canvas id="stock-chart"></canvas>
+        </section>
+        <section class="predictions">
+            <h2>Predictions</h2>
+            <div id="predictions-content"></div>
+        </section>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
