@@ -1,0 +1,65 @@
+/* General Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Form Styles */
+#add-ticker-form {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#add-ticker-form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+    width: 250px;
+}
+
+#add-ticker-form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#add-ticker-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Timer Styles */
+#timer {
+    text-align: center;
+    font-size: 18px;
+    margin: 20px;
+}
+
+#counter {
+    font-weight: bold;
+}
+
+/* Tickers Grid Styles */
+#tickers-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+}
+
+/* Chart Styles */
+canvas {
+    max-width: 100%;
+    height: 400px; /* Adjust height as needed */
+}
