@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stock Price</title>
-    <link rel = "stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="{{ url_for('static', filename='script.js')}}"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -15,5 +15,22 @@
         <button type="submit">Get Stock Info</button>
     </form>
     <div id="tickers-grid"></div>
+    <div class="charts-container">
+        <div>
+            <canvas id="priceChart" width="400" height="200"></canvas>
+        </div>
+        <div>
+            <h2>Trading Volume</h2>
+            <canvas id="volumeChart" width="400" height="200"></canvas>
+        </div>
+        <div>
+            <h2>10-day Moving Average</h2>
+            <canvas id="movingAverageChart" width="400" height="200"></canvas>
+        </div>
+        <div>
+            <h2>Percentage Change in Returns: Analyzing Volatility and Risk</h2>
+            <canvas id="returnsChart" width="400" height="200"></canvas>
+        </div>
+    </div>
 </body>
 </html>
