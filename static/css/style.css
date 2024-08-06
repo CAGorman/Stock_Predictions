@@ -6,7 +6,7 @@ body {
 }
 
 header {
-    background-color: #f8f9fa; /* Lighter shade for the header */
+    background-color: #f8f9fa;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 10px 20px;
 }
@@ -95,31 +95,24 @@ header {
 }
 
 main {
+    display: flex;
     padding: 20px;
-    text-align: center;
 }
 
-.about {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 20px;
-    background-color: #e9ecef; /* Different shade from the header */
+.main-content {
+    flex: 3;
+    padding-right: 20px;
+}
+
+aside.news {
+    flex: 1;
+    background-color: #ffffff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+    padding: 20px;
 }
 
-.about h1 {
-    font-size: 28px;
-    margin-bottom: 20px;
-}
-
-.about p {
-    font-size: 18px;
-    color: #666;
-    line-height: 1.6;
-}
-
-.stocks, .predictions {
+.about, .stocks, .predictions {
     max-width: 800px;
     margin: 40px auto;
     padding: 20px;
@@ -128,7 +121,32 @@ main {
     border-radius: 8px;
 }
 
-.stocks h2, .predictions h2 {
+.about h1, .stocks h2, .predictions h2, .news h2 {
     font-size: 24px;
     margin-bottom: 20px;
 }
+
+.news-container {
+    text-align: left;
+}
+
+.news-item {
+    margin-bottom: 20px;
+}
+
+.news-item h3 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.news-item p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.news-item a {
+    color: #1a73e8;
+    text-decoration: none;
+}
+

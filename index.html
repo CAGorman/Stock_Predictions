@@ -17,6 +17,7 @@
                     <li><a href="#about"><i class="fas fa-info-circle"></i> About the Project</a></li>
                     <li><a href="#stocks"><i class="fas fa-chart-line"></i> Stocks</a></li>
                     <li><a href="#predictions"><i class="fas fa-chart-pie"></i> Predictions</a></li>
+                    <li><a href="#news"><i class="fas fa-newspaper"></i> Stock News</a></li>
                 </ul>
             </div>
             <div class="logo">
@@ -26,27 +27,36 @@
         </div>
     </header>
     <main>
-        <section id="home">
-            <!-- Home content goes here -->
-        </section>
-        <section id="about" class="about">
-            <h1>About the Project</h1>
-            <p>This project is designed to provide comprehensive insights into individual stocks, offering accurate information on 18,000+ stocks and funds, including all the companies in the S&P500 index. See stock prices, news, financials, forecasts, charts, and more.</p>
-        </section>
-        <section id="stocks" class="stocks">
-            <h2>Stocks</h2>
-            <div class="search-bar">
-                <input type="text" placeholder="Company or stock symbol...">
+        <div class="main-content">
+            <section id="home">
+                <!-- Home content goes here -->
+            </section>
+            <section id="about" class="about">
+                <h1>About the Project</h1>
+                <p>This project is designed to provide comprehensive insights into individual stocks, offering accurate information on 18,000+ stocks and funds, including all the companies in the S&P500 index. See stock prices, news, financials, forecasts, charts, and more.</p>
+            </section>
+            <section id="stocks" class="stocks">
+                <h2>Stocks</h2>
+                <div class="search-bar">
+                    <input type="text" id="stock-input" placeholder="Company or stock symbol...">
+                    <button onclick="fetchStockNews()">Get News</button>
+                </div>
+                <!-- Stocks content goes here -->
+            </section>
+            <section id="predictions" class="predictions">
+                <h2>Predictions</h2>
+                <div class="search-bar">
+                    <input type="text" placeholder="Company or stock symbol...">
+                </div>
+                <!-- Predictions content goes here -->
+            </section>
+        </div>
+        <aside id="news" class="news">
+            <h2>Stock News</h2>
+            <div class="news-container" id="news-container">
+                <!-- Stock news content -->
             </div>
-            <!-- Stocks content goes here -->
-        </section>
-        <section id="predictions" class="predictions">
-            <h2>Predictions</h2>
-            <div class="search-bar">
-                <input type="text" placeholder="Company or stock symbol...">
-            </div>
-            <!-- Predictions content goes here -->
-        </section>
+        </aside>
     </main>
     <script src="static/js/logic.js"></script>
 </body>
