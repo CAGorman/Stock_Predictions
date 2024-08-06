@@ -17,6 +17,12 @@ def get_stock_data():
         'data': historical_data
     })
 
+@app.route('/get_stock_news', methods=['POST'])
+def get_stock_news():
+    ticker = request.get_json()['ticker']
+    stock = yf.Ticker(ticker)
+    news = stock.news
+    return jsonify(news)
+
 if __name__ == '__main__':
     app.run(debug=True)
-

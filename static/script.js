@@ -9,6 +9,7 @@ $(document).ready(function() {
             success: function(response) {
                 // Clear previous data
                 $('#tickers-grid').empty();
+                $('#news-section').empty();
                 $('#myChart').remove(); // Remove old chart
                 
                 // Update stock information
@@ -20,6 +21,7 @@ $(document).ready(function() {
 
                 // Fetch historical data to display chart
                 fetchHistoricalData(ticker);
+                fetchStockNews(ticker);
             },
             error: function(error) {
                 console.error('Error fetching stock data:', error);
@@ -95,6 +97,36 @@ function fetchHistoricalData(ticker) {
         },
         error: function(error) {
             console.error('Error fetching historical data:', error);
+        }
+    });
+}
+
+function fetchStockNews(ticker) {
+    $.ajax({
+        url: '/get_stock_news',
+        method: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify({ ticker: ticker }),
+        success: function(response) {
+            $('#news-section').empty();
+            if (Array.isArray(response) && response.length > 0) {
+                response.forEach(newsItem => {
+                    $('#news-section').append(`
+                        <div class="news-item">
+                            <a href="${newsItem.link}" target="_blank">
+                                <img src="${newsItem.thumbnail.resolutions[1].url}" alt="${newsItem.title}" />
+                                <h3>${newsItem.title}</h3>
+                                <p>${newsItem.publisher}</p>
+                            </a>
+                        </div>
+                    `);
+                });
+            } else {
+                $('#news-section').append('<p>No news available.</p>');
+            }
+        },
+        error: function(error) {
+            console.error('Error fetching stock news:', error);
         }
     });
 }
