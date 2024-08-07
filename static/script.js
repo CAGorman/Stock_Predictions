@@ -11,17 +11,18 @@ $(document).ready(function() {
                 console.log("Stock data response:", response); // Debugging
                 // Clear previous data
                 $('#tickers-grid').empty();
+                $('#news-section').empty();
              
 
-                
                 // Update stock information
                 const currentPrice = response.currentPrice;
                 $('#tickers-grid').append(`
                     <p>Current Price: $${currentPrice.toFixed(2)}</p>
                 `);
     
-                // Fetch historical data to display chart
+                // Fetch historical data to display chart and news data 
                 fetchHistoricalData(ticker);
+                fetchStockNews(ticker);
             },
             error: function(error) {
                 console.error('Error fetching stock data:', error);
@@ -157,6 +158,35 @@ $(document).ready(function() {
             },
             error: function(error) {
                 console.error('Error fetching historical data:', error);
+            }
+        });
+    }
+    function fetchStockNews(ticker) {
+        $.ajax({
+            url: '/get_stock_news',
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({ ticker: ticker }),
+            success: function(response) {
+                $('#news-section').empty();
+                if (Array.isArray(response) && response.length > 0) {
+                    response.forEach(newsItem => {
+                        $('#news-section').append(`
+                            <div class="news-item">
+                                <a href="${newsItem.link}" target="_blank">
+                                    <img src="${newsItem.thumbnail.resolutions[1].url}" alt="${newsItem.title}" />
+                                    <h3>${newsItem.title}</h3>
+                                    <p>${newsItem.publisher}</p>
+                                </a>
+                            </div>
+                        `);
+                    });
+                } else {
+                    $('#news-section').append('<p>No news available.</p>');
+                }
+            },
+            error: function(error) {
+                console.error('Error fetching stock news:', error);
             }
         });
     }
