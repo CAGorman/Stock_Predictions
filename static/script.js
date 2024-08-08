@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
     // Function to fetch stock data and update the page
     function fetchStockData(ticker) {
@@ -171,10 +172,15 @@ $(document).ready(function() {
                 $('#news-section').empty();
                 if (Array.isArray(response) && response.length > 0) {
                     response.forEach(newsItem => {
+                        // Check if the thumbnail and its resolutions are defined
+                        const thumbnailUrl = (newsItem.thumbnail && newsItem.thumbnail.resolutions && newsItem.thumbnail.resolutions[1] && newsItem.thumbnail.resolutions[1].url) 
+                            ? newsItem.thumbnail.resolutions[1].url 
+                            : 'default-thumbnail.jpg'; // Fallback image URL
+    
                         $('#news-section').append(`
                             <div class="news-item">
                                 <a href="${newsItem.link}" target="_blank">
-                                    <img src="${newsItem.thumbnail.resolutions[1].url}" alt="${newsItem.title}" />
+                                    <img src="${thumbnailUrl}" alt="${newsItem.title}" />
                                     <h3>${newsItem.title}</h3>
                                     <p>${newsItem.publisher}</p>
                                 </a>
@@ -190,6 +196,7 @@ $(document).ready(function() {
             }
         });
     }
+    
 
     $('#add-ticker-form').on('submit', function(event) {
         event.preventDefault();

@@ -6,10 +6,8 @@ import tensorflow.keras as k
 import numpy as np
 
 
-
 scaler = joblib.load("s_scaler.pkl")
 model  = k.models.load_model("stock_predictor.keras")
-
 
 
 app = Flask(__name__, template_folder='templates')

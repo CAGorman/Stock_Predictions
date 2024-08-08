@@ -3,36 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stock Price</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Stock Analysis</title>
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <form id="add-ticker-form">
-        <input type="text" id="new-ticker" placeholder="Add Ticker" required>
-        <button type="submit">Get Stock Info</button>
-    </form>
-    <div id="tickers-grid"></div>
-    <div class="content-container">
-        <div class="charts-container">
-        <div>
-            <canvas id="priceChart" width="400" height="200"></canvas>
+    <header>
+        <div class="header-top">
+            <div class="menu">
+                <span id="menu-icon">&#9776;</span>
+                <ul class="dropdown-content" id="dropdown-menu">
+                    <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="#about"><i class="fas fa-info-circle"></i> About the Project</a></li>
+                    <li><a href="#stocks"><i class="fas fa-chart-line"></i> Stocks</a></li>
+                    <li><a href="#predictions"><i class="fas fa-chart-pie"></i> Predictions</a></li>
+                    <li><a href="#news"><i class="fas fa-newspaper"></i> Stock News</a></li>
+                </ul>
+            </div>
+            <div class="logo">
+                <img src="static/images/logo.png" alt="Logo">
+                <span>STOCK ANALYSIS</span>
+            </div>
         </div>
-        <div>
-            <h2>Trading Volume</h2>
-            <canvas id="volumeChart" width="400" height="200"></canvas>
+    </header>
+    <main>
+        <div class="main-content">
+            <section id="home">
+                <!-- Home content goes here -->
+            </section>
+            <section id="about" class="about">
+                <h1>About the Project</h1>
+                <p>This project is designed to provide comprehensive insights into individual stocks, offering accurate information on 18,000+ stocks and funds, including all the companies in the S&P500 index. See stock prices, news, financials, forecasts, charts, and more.</p>
+            </section>
+            <section id="stocks" class="stocks">
+                <h2>Stocks</h2>
+                <form id="add-ticker-form">
+                    <input type="text" id="new-ticker" placeholder="Company or stock symbol..." required>
+                    <button type="submit">Get Stock Info</button>
+                </form>
+                <!-- Stocks content goes here -->
+                <div class="charts-container">
+                    <div>
+                        <canvas id="priceChart" width="400" height="200"></canvas>
+                    </div>
+                    <div>
+                        <h2>Trading Volume</h2>
+                        <canvas id="volumeChart" width="400" height="200"></canvas>
+                    </div>
+                    <div>
+                        <h2>10-day Moving Average</h2>
+                        <canvas id="movingAverageChart" width="400" height="200"></canvas>
+                    </div>
+                    <div>
+                        <h2>Percentage Change in Returns: Analyzing Volatility and Risk</h2>
+                        <canvas id="returnsChart" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </section>
+            <section id="predictions" class="predictions">
+                <h2>Predictions</h2>
+                <div class="search-bar">
+                    <!-- Remove this input if it duplicates the one in #stocks -->
+                </div>
+                <!-- Predictions content goes here -->
+            </section>
         </div>
-        <div>
-            <h2>10-day Moving Average</h2>
-            <canvas id="movingAverageChart" width="400" height="200"></canvas>
-        </div>
-        <div>
-            <h2>Percentage Change in Returns: Analyzing Volatility and Risk</h2>
-            <canvas id="returnsChart" width="400" height="200"></canvas>
-        </div>
-    </div>
-    <div id="news-section"></div>
+        <aside id="news-section" class="news">
+            <h2>Stock News</h2>
+            <div class="news-container" id="news-container">
+                <!-- Stock news content will be dynamically added here -->
+            </div>
+        </aside>
+    </main>
 </body>
 </html>
