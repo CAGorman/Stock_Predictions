@@ -234,6 +234,7 @@ aside.news {
 }
 
 /* Chart Styles */
+
 .charts-container {
     margin: 20px;
     padding: 10px;
@@ -262,4 +263,12 @@ aside.news {
     height: 400px;
     display: block;
     margin: 0 auto;
+}
+
+.top-10-stocks{ 
+    margin: 40px;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }

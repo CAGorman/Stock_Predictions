@@ -7,8 +7,10 @@
     <link rel="stylesheet" href="static/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 <body>
     <header>
@@ -63,12 +65,22 @@
                     </div>
                 </div>
             </section>
+             <!-- Predictions content goes here -->
             <section id="predictions" class="predictions">
                 <h2>Predictions</h2>
                 <div class="search-bar">
-               
                 </div>
-                <!-- Predictions content goes here -->
+            </section>
+            <!-- top 10 performing stocks -->
+            <section id="top-10" class="top-10-stocks">
+                <h2>Top 10 Performing Stocks</h2>
+                <div id="plot"></div>
+                <div id="heatmap"></div>
+                <div id="rolling-stats"></div>
+                <div id="pair_plot"></div>
+                <div id="histogram"></div>
+                <div id="boxplot"></div>
+                </div>
             </section>
         </div>
         <aside id="news-section" class="news">

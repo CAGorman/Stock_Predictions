@@ -4,6 +4,7 @@ import joblib
 import tensorflow as tf
 import tensorflow.keras as k
 import numpy as np
+from datetime import datetime
 
 
 scaler = joblib.load("s_scaler.pkl")
@@ -49,6 +50,19 @@ def get_stock_news():
     stock = yf.Ticker(ticker)
     news = stock.news
     return jsonify(news)
+
+@app.route('/plots_data')
+def data():
+    tickers = ['SMCI', 'NVDA', 'ANET', 'NTAP', 'AVGO', 'KLAC', 'FICO', 'GDDY', 'MPWR', 'TYL']
+    end_date = datetime.now().strftime('%Y-%m-%d')
+    
+    all_data = {}
+    for ticker in tickers:
+        data = yf.download(ticker, start='2024-01-01', end=end_date)
+        data.reset_index(inplace=True)
+        all_data[ticker] = data.to_dict(orient='records')
+    
+    return jsonify(all_data)
 
 if __name__ == '__main__':
     app.run(debug=True)
