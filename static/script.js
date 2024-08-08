@@ -196,7 +196,28 @@ $(document).ready(function() {
             }
         });
     }
+
+    document.getElementById("add-ticker-form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent the form from submitting the traditional way
     
+        // Get the ticker symbol from the input field
+        const ticker = document.getElementById("new-ticker").value;
+    
+        // Make an AJAX request to the Flask endpoint
+        $.ajax({
+            url: `/model-endpoint/${ticker}`,
+            type: 'GET',
+            success: function(response) {
+                // Display the prediction result in the #predictions section
+                document.querySelector("#predictions .search-bar").innerHTML = `<p>${response[0]}</p>`;
+            },
+            error: function(error) {
+                console.log("Error:", error);
+            }
+        });
+    });
+    
+
 
     $('#add-ticker-form').on('submit', function(event) {
         event.preventDefault();
