@@ -1,3 +1,6 @@
+// analysis.js
+
+// Function to fetch data and plot visualizations
 async function fetchData() {
     const response = await fetch('/plots_data');
     return response.json();
@@ -104,15 +107,10 @@ function plotPairPlot(data) {
     const numTickers = tickers.length;
     const df = tickers.map(ticker => data[ticker].map(item => item.Close));
 
-    // Create an array to hold the subplot configuration
     const subplotTraces = [];
-    const subplotTitles = [];
-    
-    // Initialize subplot grid
     for (let i = 0; i < numTickers; i++) {
         for (let j = 0; j < numTickers; j++) {
             if (i !== j) {
-                // Scatter plot for each pair of tickers
                 subplotTraces.push({
                     x: df[i],
                     y: df[j],
@@ -123,7 +121,6 @@ function plotPairPlot(data) {
                     yaxis: `y${j + 1}`
                 });
             } else {
-                // Diagonal subplots (can be histogram or empty)
                 subplotTraces.push({
                     x: df[i],
                     y: df[i],
@@ -132,13 +129,12 @@ function plotPairPlot(data) {
                     name: tickers[i],
                     xaxis: `x${i + 1}`,
                     yaxis: `y${i + 1}`,
-                    marker: { opacity: 0 } // Hide points in diagonal if desired
+                    marker: { opacity: 0 }
                 });
             }
         }
     }
 
-    // Generate subplot layout
     const layout = {
         grid: {
             rows: numTickers,
@@ -150,7 +146,6 @@ function plotPairPlot(data) {
         yaxis: { title: '', showgrid: false }
     };
 
-    // Set axis properties dynamically
     for (let i = 0; i < numTickers; i++) {
         layout[`xaxis${i + 1}`] = { title: tickers[i] };
         layout[`yaxis${i + 1}`] = { title: tickers[i], autorange: 'reversed' };
@@ -219,6 +214,7 @@ function calculatePercentageChange(prices) {
     return prices.slice(1).map((price, idx) => (price - prices[idx]) / prices[idx]);
 }
 
+// Fetch data and plot visualizations
 fetchData().then(data => {
     plotData(data);
     plotHeatmap(data);
