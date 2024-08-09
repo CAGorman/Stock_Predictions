@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Analysis</title>
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+<header>
+    <div class="header-top">
+        <div class="menu">
+            <span id="menu-icon">&#9776;</span>
+            <ul class="dropdown-content" id="dropdown-menu">
+                <li><a href="#about"><i class="fas fa-info-circle"></i> About the Project</a></li>
+                <li><a href="#stocks"><i class="fas fa-chart-line"></i> Stock Info</a></li>
+                <li><a href="#predictions"><i class="fas fa-chart-pie"></i> Prediction</a></li>
+                <li><a href="#top-10"><i class="fas fa-star"></i> Top 10 Stocks</a></li>
+            </ul>
+        </div>
+        <div class="logo">
+            <img src="static/images/logo.png" alt="Logo">
+            <span>STOCK ANALYSIS</span>
+        </div>
+        <div class="header-form">
+            <form id="header-ticker-form">
+                <input type="text" id="header-ticker" placeholder="Company or stock symbol..." required>
+                <button type="submit">Get Stock Info</button>
+            </form>
+        </div>
+    </div>
+</header>
+<main>
+    <div class="main-content">
+        <section id="about" class="about">
+            <h1 class="section-title">About the Project</h1>
+            <p>This project is designed to provide comprehensive insights into individual stocks, offering accurate information on 18,000+ stocks and funds, including all the companies in the S&P500 index. See stock prices, news, financials, forecasts, charts, and more.</p>
+        </section>
+        <section id="stocks" class="stocks">
+            <h2 class="section-title">Stock Info</h2>
+            <div class="charts-container">
+                <div>
+                    <canvas id="priceChart" width="400" height="200"></canvas>
+                </div>
+                <div>
+                    <h2 class="section-title">Trading Volume</h2>
+                    <canvas id="volumeChart" width="400" height="200"></canvas>
+                </div>
+                <div>
+                    <h2 class="section-title">10-day Moving Average</h2>
+                    <canvas id="movingAverageChart" width="400" height="200"></canvas>
+                </div>
+                <div>
+                    <h2 class="section-title">Percentage Change in Returns: Analyzing Volatility and Risk</h2>
+                    <canvas id="returnsChart" width="400" height="200"></canvas>
+                </div>
+            </div>
+        </section>
+        <!-- Predictions section -->
+        <section id="predictions" class="predictions">
+            <h2 class="section-title">Prediction</h2>
+            <div class="search-bar">
+                <!-- This will display the prediction results -->
+            </div>
+        </section>
+        <!-- Top 10 performing stocks section -->
+        <section id="top-10" class="top-10-stocks">
+            <h2 class="section-title">Top 10 Performing Stocks</h2>
+            <div id="plot"></div>
+            <div id="heatmap"></div>
+            <div id="rolling-stats"></div>
+            <div id="pair_plot"></div>
+            <div id="histogram"></div>
+            <div id="boxplot"></div>
+        </section>
+    </div>
+    <aside id="news-section" class="news">
+        <h2 class="news-header">News</h2>
+        <div class="news-container" id="news-container">
+            <!-- Stock news content will be dynamically added here -->
+        </div>
+    </aside>
+</main>
+</body>
+</html>
