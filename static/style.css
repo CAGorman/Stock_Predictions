@@ -284,6 +284,36 @@ aside.news {
 
 /* Ensure news section does not extend past its content */
 aside.news {
-    align-self: flex-start; /* Aligns the news section with its content */
-    flex: 1 1 auto; /* Allows the news section to only take up as much space as it needs */
+    align-self: flex-start; 
+    flex: 1 1 auto; 
+}
+
+.predictions {
+    background-color: #fff; 
+    transition: background-color 0.5s ease;
+    text-align: center; 
+    padding: 20px;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    height: auto; 
+}
+
+.predictions .section-title {
+    margin-bottom: 20px; 
+}
+
+.predictions .search-bar {
+    margin-top: 10px; 
+    font-size: 18px; 
+    text-align: center; 
+}
+
+.predictions.up {
+    background-color: #d4edda !important; /* Green background */
+}
+
+.predictions.down {
+    background-color: #f8d7da !important; /* Red background */
 }

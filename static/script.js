@@ -208,15 +208,35 @@ $(document).ready(function() {
             url: `/model-endpoint/${ticker}`,
             type: 'GET',
             success: function(response) {
-                console.log("Prediction response:", response);
+                console.log("Prediction response:", response[0]); // Debugging
+                const predictionBox = document.querySelector('.predictions');
+    
+                // Update the prediction text
                 document.querySelector("#predictions .search-bar").innerHTML = `<p>${response[0]}</p>`;
+    
+                // Determine if the prediction is "up" or "down"
+                if (response[0].trim().toLowerCase() === "up") {
+                    console.log("Adding class 'up'");
+                    predictionBox.classList.remove('down');
+                    predictionBox.classList.add('up');
+                    predictionBox.style.backgroundColor = '#d4edda'; // Ensure color change
+                } else if (response[0].trim().toLowerCase() === "down") {
+                    console.log("Adding class 'down'");
+                    predictionBox.classList.remove('up');
+                    predictionBox.classList.add('down');
+                    predictionBox.style.backgroundColor = '#f8d7da'; // Ensure color change
+                } else {
+                    console.log("No prediction match, removing classes");
+                    predictionBox.classList.remove('up', 'down');
+                    predictionBox.style.backgroundColor = ''; // Clear any inline background color
+                }
             },
             error: function(error) {
                 console.error('Error fetching prediction data:', error);
             }
         });
     }
-
+    
     // Event listener for the new form in the header
     $('#header-ticker-form').on('submit', function(event) {
         event.preventDefault(); // Prevent the form from submitting the traditional way
@@ -463,3 +483,21 @@ $(document).ready(function() {
         plotBoxplot(data);
     }).catch(error => console.error('Error fetching data:', error));
 });
+
+// Add prediction background color change logic outside $(document).ready()
+function applyPredictionBackgroundColor() {
+    const predictionBox = document.querySelector('.predictions');
+    const predictionText = predictionBox.querySelector('.search-bar p').textContent.trim().toLowerCase();
+
+    if (predictionText === "up") {
+        predictionBox.style.backgroundColor = "#d4edda"; // Green background
+    } else if (predictionText === "down") {
+        predictionBox.style.backgroundColor = "#f8d7da"; // Red background
+    } else {
+        predictionBox.style.backgroundColor = "#fff"; // Default white background
+    }
+}
+
+// Add a mutation observer to detect changes in the prediction text
+const observer = new MutationObserver(applyPredictionBackgroundColor);
+observer.observe(document.querySelector('.predictions .search-bar'), { childList: true });
