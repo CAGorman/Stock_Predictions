@@ -139,9 +139,16 @@ LSTM networks, combined with Keras Tuner, are used for tuning hyperparameters in
 
 ![Table](https://github.com/user-attachments/assets/990f4656-2539-4905-9070-8522d1204f8e)
 
-LSTM (Long Short-Term Memory) networks are highly effective for working with Yahoo Finance data because of their ability to capture long-term patterns in time series data, making them ideal for stock price prediction. LSTMs are particularly adept at recognizing trends and cycles over extended periods, which is essential for accurate forecasting. Their flexibility also allows for the integration of multiple financial indicators, like stock prices and trading volumes, to improve predictive accuracy. However, LSTMs come with challenges, including their complexity, which makes them resource-intensive to train, and a tendency to overfit, especially in noisy and volatile markets.
+LSTM networks are highly effective for predicting stock prices with stock price data due to their ability to capture long-term patterns and trends. They are flexible in integrating various financial indicators, such as stock prices and trading volumes, enhancing predictive accuracy. However, LSTMs can be complex and resource-intensive to train and are prone to overfitting, especially in volatile markets.
+Keras Tuner is valuable for optimizing LSTM models by automating hyperparameter tuning, like learning rates and LSTM units. Although it simplifies the tuning process, it requires significant resources and careful management to avoid overfitting.
 
-To enhance the performance of LSTM models on financial data, Keras Tuner is an invaluable tool for automating the hyperparameter tuning process. It streamlines the selection of optimal hyperparameters, such as the number of LSTM units or learning rate, customized to the unique characteristics of Yahoo Finance data. Although Keras Tuner is user-friendly and offers flexible tuning strategies, it also presents challenges, including its high demand on resources and the risk of overfitting if not carefully controlled. Therefore, while the combination of LSTM networks and Keras Tuner can yield powerful stock prediction models, careful management of these complexities is essential to prevent overfitting and ensure strong performance on new data.
+**Performance Metrics:**
+- MSE: 0.00194
+- RMSE: 0.044
+- MAE: 0.0341
+- R-Squared: 0.9496
+
+These metrics indicate the model’s effectiveness, with a low MSE, RMSE, and MAE suggesting strong performance, and a high R-Squared reflecting good explanatory power.
 
 
 **Resource:**
