@@ -134,11 +134,6 @@ LSTM networks, combined with Keras Tuner, are used for tuning hyperparameters in
 ![Keras Tuner Results](https://github.com/user-attachments/assets/2be7131e-1cfb-4fe3-bfbe-1a3311d6f382)
 
 # Conclusion
-
-![Scatter](https://github.com/user-attachments/assets/0c0a0216-b5c4-46d1-9e58-7a8e8db44804)
-
-![Table](https://github.com/user-attachments/assets/990f4656-2539-4905-9070-8522d1204f8e)
-
 LSTM networks are highly effective for predicting stock prices with stock price data due to their ability to capture long-term patterns and trends. They are flexible in integrating various financial indicators, such as stock prices and trading volumes, enhancing predictive accuracy. However, LSTMs can be complex and resource-intensive to train and are prone to overfitting, especially in volatile markets.
 Keras Tuner is valuable for optimizing LSTM models by automating hyperparameter tuning, like learning rates and LSTM units. Although it simplifies the tuning process, it requires significant resources and careful management to avoid overfitting.
 
@@ -149,6 +144,11 @@ Keras Tuner is valuable for optimizing LSTM models by automating hyperparameter 
 - R-Squared: 0.9496
 
 These metrics indicate the model’s effectiveness, with a low MSE, RMSE, and MAE suggesting strong performance, and a high R-Squared reflecting good explanatory power.
+
+![Scatter](https://github.com/user-attachments/assets/0c0a0216-b5c4-46d1-9e58-7a8e8db44804)
+
+![Table](https://github.com/user-attachments/assets/990f4656-2539-4905-9070-8522d1204f8e)
+
 
 
 **Resource:**
