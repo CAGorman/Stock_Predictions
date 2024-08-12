@@ -30,11 +30,46 @@ Pros: Sequence Memory, Flexibility Cons: Complexity, Overfitting
 XGBoost, which stands for eXtreme Gradient Boosting, is a highly efficient and versatile implementation of the gradient boosting framework. It has become one of the most popular machine learning algorithms among data scientists, especially for structured or tabular data. XGBoost is known for its performance and speed, particularly in classification and regression predictive modeling problems.
 PROS: High performance and accuracy, Can ber used for Regression and Classification, Built in function to handle missing data. CONS: Complexity, Resource Intensive, Overfitting,Less effective on Non-Tabular data.
 
-Precision: 0.9375
-Accuracy: 0.6435643564356436
-Recall: 0.46875
-F1 Score: 0.625
-R-squared: -0.5354729729729726
+- Precision: 0.9375
+- Accuracy: 0.6435643564356436
+- Recall: 0.46875
+- F1 Score: 0.625
+- R-squared: -0.5354729729729726
+
+![reg xgboost](https://github.com/user-attachments/assets/d4a3c804-982a-4f4f-b75f-a00f66b1e696)
 
 ### Sentiment Analysis
 Using XGBoost for sentiment analysis in the context of predicting stock prices involves analyzing textual data (such as news headlines, financial reports, or social media posts) to gauge market sentiment and using that information as a predictive factor for stock movements. This approach is based on the hypothesis that sentiment from influential news sources or public opinion can have immediate effects on stock market performance.
+
+- Precision: 0.5853658536585366
+- Accuracy: 0.43564356435643564
+- Recall: 0.375
+- F1 Score: 0.45714285714285713
+- R-squared: -1.43116554054054
+
+![sentiment xgboost](https://github.com/user-attachments/assets/661ecc29-8d6c-4c90-b936-821e374fbc04)
+
+## Keras Tuner with LSTM
+LSTM is a type of recurrent neural network (RNN) particularly good at learning from sequences (such as time series data). It can capture long-term dependencies and patterns in time series data, making it suitable for tasks like stock price predictions.
+Pros: Sequence Memory, Flexibility Cons: Complexity, Overfitting
+KERAS TUNER is a library for scalable hyperparameter tuning, that chooses the best set of hyperparameters for your neural network. It's specifically designed for tuning KERAS models within the TensorFlow framework. PROS: Ease of use, Flexible tuning strategies, Automated tuning CONS: Resource intensive, Overfitting risk, Complex setup, Only for KERAS
+
+### Hyperparameters
+1. LSTM Units:
+   - The number of units in the LSTM layers is a hyperparameter. It can be one of the following values: 50, 100, 150, or 200. This is defined by:
+     hp.Int('units', min_value=50, max_value=200, step=50)
+    
+2. Dropout Rate:
+   - The dropout rate for the Dropout layers is also a hyperparameter. It can be one of the following values: 0.0, 0.1, 0.2, 0.3, 0.4, or 0.5. This is defined by:
+     hp.Float('dropout', min_value=0.0, max_value=0.5, step=0.1)
+
+
+The number of units is a tunable hyperparameter, with a range set from 50 to 200. The step size of 50 means that the tuner will increment the number of units by 50 at each step. This stepping helps in exploring different model capacities systematically without making the tuning excessively fine-grained, Dropout randomly sets a fraction of the input units to 0 at each update during training time to prevent overfitting. The output layer with a single neuron. Since it uses a default linear activation function ('None'specified), this setup is typical for regression tasks like predicting a value (e.g., stock price).
+
+- MSE: 0.0019401842056118953
+- RMSE: 0.044047522127946034
+- MAE: 0.034159542079231414
+- R-squared: 0.9496328576691679
+
+![Keras tuner](https://github.com/user-attachments/assets/2be7131e-1cfb-4fe3-bfbe-1a3311d6f382)
+
