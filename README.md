@@ -144,4 +144,5 @@ LSTM (Long Short-Term Memory) networks are highly effective for working with Yah
 To enhance the performance of LSTM models on financial data, Keras Tuner is an invaluable tool for automating the hyperparameter tuning process. It streamlines the selection of optimal hyperparameters, such as the number of LSTM units or learning rate, customized to the unique characteristics of Yahoo Finance data. Although Keras Tuner is user-friendly and offers flexible tuning strategies, it also presents challenges, including its high demand on resources and the risk of overfitting if not carefully controlled. Therefore, while the combination of LSTM networks and Keras Tuner can yield powerful stock prediction models, careful management of these complexities is essential to prevent overfitting and ensure strong performance on new data.
 
 
-
+**Resource:**
+YFinance
