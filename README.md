@@ -151,5 +151,5 @@ These metrics indicate the model’s effectiveness, with a low MSE, RMSE, and MA
 
 
 
-**Resource:**
+**Project Resource:**
 YFinance
