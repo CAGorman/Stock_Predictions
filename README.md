@@ -17,6 +17,19 @@ STOCK PREDICTIONS using LSTM
 LSTM is a type of recurrent neural network (RNN) particularly good at learning from sequences (such as time series data). It can capture long-term dependencies and patterns in time series data, making it suitable for tasks like stock price predictions.
 Pros: Sequence Memory, Flexibility Cons: Complexity, Overfitting
 
+### Data Pre-Processing
+Look-back windows are essential for analyzing stock data because they allow models to capture and leverage historical price patterns, trends, and seasonality to predict future movements. By examining a fixed period of past data, such as the last 20 days, these windows enable models to learn from recent trends and fluctuations, thereby improving their forecasting accuracy. Additionally, look-back windows help in feature engineering and smoothing out short-term noise, ensuring that predictions are based on meaningful patterns rather than random variations.
+![lookback code](https://github.com/user-attachments/assets/1d9a55e2-7843-4de1-a0bb-8cad784f1579)
+
+**Additional Steps**
+1. Drop rows with NaN target values
+2. Dropped columns that do not provide meaningful information to focus further on key features
+3. Splitting pre-processed data into features and target arrays
+4. Data normalization utilizing StandardScaler
+5. Splitting data into training and testing sets
+6. Scaling data utilizing MinMaxScaler
+
+
 - Precision: 0.5555555555555556
 - Accuracy: 0.4948453608247423
 - Recall: 0.5454545454545454
