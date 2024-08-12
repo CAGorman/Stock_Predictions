@@ -134,3 +134,10 @@ LSTM networks, combined with Keras Tuner, are used for tuning hyperparameters in
 ![Keras Tuner Results](https://github.com/user-attachments/assets/2be7131e-1cfb-4fe3-bfbe-1a3311d6f382)
 
 # Conclusion
+
+![Scatter](https://github.com/user-attachments/assets/0c0a0216-b5c4-46d1-9e58-7a8e8db44804)
+
+![Table](https://github.com/user-attachments/assets/990f4656-2539-4905-9070-8522d1204f8e)
+
+
+
