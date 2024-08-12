@@ -10,5 +10,4 @@ Recall: 0.390625
 F1 Score: 0.5434782608695653
 R-squared: -0.7913851351351346
 
-https://cuvirtdatapt0-dpp4038.slack.com/files/U06L5JP4WMP/F07GLEJ8R6X/screenshot_2024-08-12_at_3.44.10_pm.png
-
+![Screenshot 2024-08-12 at 3 44 10 PM](https://github.com/user-attachments/assets/0c1df4a0-828e-4e3f-a673-750391ebc2b5)
