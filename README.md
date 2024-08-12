@@ -1,4 +1,13 @@
 ![SPM_Header](https://github.com/user-attachments/assets/18e45651-f779-4e6c-a088-8f94f28e08be)
+# Introduction
+Our project aims to predict stock prices using advanced machine learning techniques, including Long Short-Term Memory (LSTM) networks. The model operates based on a look-back window of 20 days, allowing it to capture historical patterns and trends in stock prices. In addition to LSTM, we have explored and utilized various optimization techniques and models, including Keras Tuner, XGBoost, XGBoost with sentiment analysis, and Random Forests, to enhance prediction accuracy and performance.
+Furthermore, we have developed and deployed an interactive website that allows users to select their stock of interest and view a comprehensive set of features, including:
+- Real-time Stock Information: Access up-to-date details about the chosen stock.
+- News Updates: Latest news related to the stock to help users stay informed.
+- Comparative Graphs: Visual representations comparing the chosen stock with others.
+- Predicted Stock Price: Forecasted future prices based on our models' predictions.
+- Trend Predictions: Insights into whether the stock is predicted to go up or down.
+
 # Model Optimization Process
 
 This repository outlines the model optimization process using different machine learning algorithms and techniques for stock prediction tasks. Below, you'll find detailed information about the methods used, results achieved, and relevant visualizations.
@@ -124,5 +133,5 @@ LSTM networks, combined with Keras Tuner, are used for tuning hyperparameters in
 
 ![Keras Tuner Results](https://github.com/user-attachments/assets/2be7131e-1cfb-4fe3-bfbe-1a3311d6f382)
 
-Feel free to explore the code and results in this repository for further insights into each model and their optimization processes.
+# Conclusion
 
