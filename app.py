@@ -7,8 +7,8 @@ import numpy as np
 from datetime import datetime
 
 
-scaler = joblib.load("s_scaler.pkl")
-model  = k.models.load_model("predictor_models/trained_model.keras")
+scaler = joblib.load("scaler.pkl")
+model  = k.models.load_model("trained_model.keras")
 
 
 app = Flask(__name__, template_folder='templates')
@@ -23,19 +23,42 @@ def analysis():
 
 @app.route("/model-endpoint/<symbol>")
 def make_pred(symbol):
+    # Retrieve the latest data for the specified symbol
     data = yf.download(symbol)
-    data = data.drop(columns="Adj Close")
-    input = data[-20:]
-    scaled_input = scaler.transform(input)
-    input_reshaped = scaled_input.reshape(1,20,5)
+    
+    # Drop 'Adj Close' if it exists
+    if 'Adj Close' in data.columns:
+        data = data.drop(columns='Adj Close')
+    
+    # Use the last 20 rows of data (or adjust based on your time_step)
+    input_data = data[-20:]
+    
+    # Ensure 'Close' column is used and properly scaled
+    if 'Close' not in input_data.columns:
+        return jsonify({"error": "No 'Close' column in the data."}), 400
+    
+    # Extract the 'Close' prices and scale them
+    input_data = input_data[['Close']].values
+    scaled_input = scaler.transform(input_data)
+    
+    # Reshape input for LSTM model
+    input_reshaped = scaled_input.reshape(1, 20, 1)  # Adjust time_step and feature dimension if necessary
+    
+    # Make prediction
     prediction = model.predict(input_reshaped)
-    pred = np.ravel(np.argmax(prediction))[0]
-    if pred == 0: 
+    
+    # Assuming a binary classification output (e.g., stock goes up or down)
+    # Adjust this based on your model's actual output
+    pred = np.argmax(prediction, axis=-1)[0]
+    
+    # Provide output based on prediction
+    if pred == 0:
         output = ["Stock is likely to go down"]
-    else: 
+    else:
         output = ["Stock is likely to go up"]
-
+    
     return jsonify(output)
+
     
 
 @app.route('/get_stock_data', methods=['POST'])
