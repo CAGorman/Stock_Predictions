@@ -8,7 +8,7 @@ from datetime import datetime
 
 
 scaler = joblib.load("s_scaler.pkl")
-model  = k.models.load_model("stock_predictor.keras")
+model  = k.models.load_model("predictor_models/trained_model.keras")
 
 
 app = Flask(__name__, template_folder='templates')
