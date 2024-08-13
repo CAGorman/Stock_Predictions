@@ -18,11 +18,10 @@ This repository outlines the model optimization process using different machine 
 Random Forest is an ensemble learning method that utilizes multiple decision trees to make predictions. It combines the results of individual trees to produce a more accurate and robust prediction. This method is effective in capturing complex non-linear patterns without requiring data transformations.
 
 **Results:**
-- Precision: 0.8929
-- Accuracy: 0.5842
-- Recall: 0.3906
-- F1 Score: 0.5435
-- R-squared: -0.7914
+- MSE: 0.43
+- RMSE: 0.6557438524302001
+- MAE: 0.43
+- R-squared: -0.8447018447018446
 
 ![Random Forest Results](https://github.com/user-attachments/assets/0c1df4a0-828e-4e3f-a673-750391ebc2b5)
 
@@ -51,11 +50,10 @@ LSTM is a type of recurrent neural network (RNN) that excels in learning from se
 6. Scale data using `MinMaxScaler`.
 
 **Results:**
-- Precision: 0.5556
-- Accuracy: 0.4948
-- Recall: 0.5455
-- F1 Score: 0.5505
-- R-squared: -1.0576
+- MSE: 0.5104166666666666
+- RMSE: 0.7144345083117603
+- MAE: 0.5104166666666666
+- R-squared: -1.086031042128603
 
 ![LSTM Results](https://github.com/user-attachments/assets/9eefcd5c-c7ac-48eb-af92-75b23a253f91)
 
@@ -78,11 +76,10 @@ XGBoost (eXtreme Gradient Boosting) is an efficient and versatile gradient boost
 - Less effective on non-tabular data
 
 **Results:**
-- Precision: 0.9375
-- Accuracy: 0.6436
-- Recall: 0.4688
-- F1 Score: 0.6250
-- R-squared: -0.5355
+- MSE: 0.33
+- RMSE: 0.5744562646538028
+- MAE: 0.33
+- R-squared: -0.4157014157014156
 
 ![XGBoost Regular Results](https://github.com/user-attachments/assets/d4a3c804-982a-4f4f-b75f-a00f66b1e696)
 
@@ -92,11 +89,10 @@ XGBoost (eXtreme Gradient Boosting) is an efficient and versatile gradient boost
 XGBoost is used for sentiment analysis to predict stock prices based on textual data, such as news headlines and social media posts. This approach leverages market sentiment to predict stock movements.
 
 **Results:**
-- Precision: 0.5854
-- Accuracy: 0.4356
-- Recall: 0.3750
-- F1 Score: 0.4571
-- R-squared: -1.4312
+- MSE: 0.33
+- RMSE: 0.5744562646538028
+- MAE: 0.33
+- R-squared: -0.4157014157014156
 
 ![XGBoost Sentiment Analysis Results](https://github.com/user-attachments/assets/661ecc29-8d6c-4c90-b936-821e374fbc04)
 
