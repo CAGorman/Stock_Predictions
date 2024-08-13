@@ -1,8 +1,6 @@
-
 $(document).ready(function() {
-    // Function to fetch stock data and update the page
+    // Function for fetching stock data and update the page
     function fetchStockData(ticker) {
-        
         $.ajax({
             url: '/get_stock_data',
             method: 'POST',
@@ -10,49 +8,50 @@ $(document).ready(function() {
             data: JSON.stringify({ ticker: ticker }),
             success: function(response) {
                 console.log("Stock data response:", response); // Debugging
-                // Clear previous data
+                // Clearing previous data
                 $('#tickers-grid').empty();
                 $('#news-section').empty();
              
-
-                // Update stock information
+                // Updating stock information
                 const currentPrice = response.currentPrice;
                 $('#tickers-grid').append(`
                     <p>Current Price: $${currentPrice.toFixed(2)}</p>
                 `);
     
-                // Fetch historical data to display chart and news data 
+                // Fetching historical data to display chart and news data 
                 fetchHistoricalData(ticker);
                 fetchStockNews(ticker);
             },
             error: function(error) {
                 console.error('Error fetching stock data:', error);
             }
-        })
+        });
+
+        // Fetching the stock prediction data
         $.ajax({
             url: `/model-endpoint/${ticker}`,
             method: 'GET',
             success: function(response) {
-                // Clear previous prediction results
-                $('#prediction-result').text('');
-                $('#predictions').removeClass('up down');
+                console.log('Response data:', response); // Checking the received data
         
-                // Display new prediction result
-                $('#prediction-result').text(response.message);
-                if (response.status === 'up') {
-                    $('#predictions').addClass('up');
+                if (response && response.predicted_price !== undefined && response.direction !== undefined) {
+                    $('#prediction-container').empty().append(`
+                        <p>Predicted Price: $${response.predicted_price.toFixed(2)}</p>
+                        <p>${response.direction}</p>
+                    `);
+        
+                    $('#predictions').removeClass('up down');
+                    if (response.direction.includes('up')) {
+                        $('#predictions').addClass('up');
+                    } else {
+                        $('#predictions').addClass('down');
+                    }
                 } else {
-                    $('#predictions').addClass('down');
+                    $('#prediction-container').text('No prediction data available.');
                 }
-            },
-            error: function() {
-                // Clear previous prediction results
-                $('#prediction-result').text('Error fetching prediction.');
-                $('#predictions').removeClass('up down');
             }
-        });
+        });}
         
-    }
     let priceChart = null;
     let volumeChart = null; 
     let averageChart = null;

@@ -23,14 +23,13 @@ def analysis():
 
 @app.route("/model-endpoint/<symbol>")
 def make_pred(symbol):
-    # Retrieve the latest data for the specified symbol
+    # Latest data for the specified symbol
     data = yf.download(symbol)
     
-    # Drop 'Adj Close' if it exists
     if 'Adj Close' in data.columns:
         data = data.drop(columns='Adj Close')
     
-    # Use the last 20 rows of data (or adjust based on your time_step)
+    # Use the last 20 rows of data (timestep)
     input_data = data[-20:]
     
     # Ensure 'Close' column is used and properly scaled
@@ -47,19 +46,23 @@ def make_pred(symbol):
     # Make prediction
     prediction = model.predict(input_reshaped)
     
-    # Assuming a binary classification output (e.g., stock goes up or down)
-    # Adjust this based on your model's actual output
-    pred = np.argmax(prediction, axis=-1)[0]
+    # Regression output (predicted stock price)
+    predicted_price = float(scaler.inverse_transform(prediction)[0][0])
+    
+    # Binary classification output for up/down prediction
+    pred_class = np.argmax(prediction, axis=-1)[0]
     
     # Provide output based on prediction
-    if pred == 0:
-        output = ["Stock is likely to go down"]
+    if pred_class == 0:
+        direction = "Stock is likely to go down"
     else:
-        output = ["Stock is likely to go up"]
+        direction = "Stock is likely to go up"
     
-    return jsonify(output)
+    return jsonify({
+        "predicted_price": round(predicted_price, 2),
+        "direction": direction
+    })
 
-    
 
 @app.route('/get_stock_data', methods=['POST'])
 def get_stock_data():

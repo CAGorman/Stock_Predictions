@@ -283,12 +283,23 @@ aside.news {
 .predictions {
     background-color: #fff; /* Default background color */
     transition: background-color 0.5s ease;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box; /* Padding/border for element width/height */
+    width: 100%; /* Full width of the container */
+    min-height: 100px; /*Enough height to display content */
 }
 
 .predictions.up {
-    background-color: #d4edda; /* Green background */
+    background-color: #d4edda; /* Green background for "up" */
 }
 
 .predictions.down {
-    background-color: #f8d7da; /* Red background */
+    background-color: #f8d7da; /* Red background for "down" */
+}
+
+#prediction-container p {
+    font-size: 18px;
+    margin: 5px 0;
 }
